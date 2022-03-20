@@ -1,5 +1,5 @@
 // We grab Schema and model from mongoose library.
-const { prefix } = require("../config");
+
 const { Schema, model } = require("mongoose");
 
 // We declare new schema.
@@ -9,7 +9,7 @@ const guildSettingSchema = new Schema({
   },
   prefix: {
     type: String,
-    default: prefix,
+    default: process.env.prefix,
   },
 });
 

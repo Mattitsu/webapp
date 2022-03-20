@@ -7,7 +7,7 @@
 
 // We import the modules.
 require("dotenv").config();
-const config = require("./config");
+//const config = require("./config");
 const mongoose = require("mongoose");
 const GuildSettings = require("./models/settings");
 const Dashboard = require("./dashboard/dashboard");
