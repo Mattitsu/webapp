@@ -7,7 +7,7 @@ const ejs = require("ejs");
 const path = require("path");
 const chalk = require("chalk");
 const express = require("express");
-const config = require("../config");
+//const config = require("../config");
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const session = require("express-session");
@@ -38,7 +38,7 @@ module.exports = async (client) => {
   let callbackUrl;
 
   try {
-    const domainUrl = new URL(config.domain);
+    const domainUrl = new URL(process.env.domain);
     domain = {
       host: domainUrl.hostname,
       protocol: domainUrl.protocol,
@@ -48,11 +48,11 @@ module.exports = async (client) => {
     throw new TypeError("Invalid domain specific in the config file.");
   }
 
-  if (config.usingCustomDomain) {
+  if (process.env.usingCustomDomain) {
     callbackUrl = `${domain.protocol}//${domain.host}/callback`;
   } else {
     callbackUrl = `${domain.protocol}//${domain.host}${
-      config.port == 80 ? "" : `:${config.port}`
+      process.env.port == 80 ? "" : `:${process.env.port}`
     }/callback`;
   }
 
@@ -68,7 +68,7 @@ module.exports = async (client) => {
     `${chalk.red.bold(
       "Discord Developer Portal:",
     )} ${chalk.white.bold.italic.underline(
-      `https://discord.com/developers/applications/${config.id}/oauth2`,
+      `https://discord.com/developers/applications/${process.env.id}/oauth2`,
     )}`,
     msg,
   ]);
@@ -81,8 +81,8 @@ module.exports = async (client) => {
   passport.use(
     new Strategy(
       {
-        clientID: config.id,
-        clientSecret: config.clientSecret,
+        clientID: process.env.id,
+        clientSecret: process.env.clientSecret,
         callbackURL: callbackUrl,
         scope: ["identify", "guilds"],
       },
@@ -109,7 +109,7 @@ module.exports = async (client) => {
   app.use(passport.session());
 
   // We bind the domain.
-  app.locals.domain = config.domain.split("//")[1];
+  app.locals.domain = process.env.domain.split("//")[1];
 
   // We set out templating engine.
   app.engine("ejs", ejs.renderFile);
@@ -207,7 +207,7 @@ module.exports = async (client) => {
   // Index endpoint.
   app.get("/", (req, res) => {
     renderTemplate(res, req, "index.ejs", {
-      discordInvite: config.discordInvite,
+      discordInvite: process.env.discordInvite,
     });
   });
 
@@ -293,7 +293,7 @@ module.exports = async (client) => {
     });
   });
 
-  app.listen(config.port, null, null, () =>
-    console.log(`Dashboard is up and running on port ${config.port}.`),
+  app.listen(process.env.port, null, null, () =>
+    console.log(`Dashboard is up and running on port ${process.env.port}.`),
   );
 };

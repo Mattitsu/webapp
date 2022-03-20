@@ -6,6 +6,7 @@
 /* eslint-disable no-shadow-restricted-names */
 
 // We import the modules.
+require('dotenv').config()
 const config = require("./config");
 const mongoose = require("mongoose");
 const GuildSettings = require("./models/settings");
@@ -17,12 +18,12 @@ const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES],
 });
 
-mongoose.connect(config.mongodbUrl, {
+mongoose.connect(process.env.mongodbUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-client.config = config;
+
 
 // We listen for client's ready event.
 client.on("ready", async () => {
@@ -37,7 +38,7 @@ client.on("ready", async () => {
   );
 
   client.user.setActivity(
-    "https://github.com/MrAugu/simple-discordjs-dashboard",
+    "https://youtube.com/mattitsu",
     { type: "WATCHING" },
   );
 
@@ -90,4 +91,4 @@ client.on("error", console.error);
 client.on("warn", console.warn);
 
 // We login into the bot.
-client.login(config.token);
+client.login(process.env.token);
