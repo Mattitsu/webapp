@@ -9,7 +9,6 @@ const guildSettingSchema = new Schema({
   },
   prefix: {
     type: String,
-    default: process.env.prefix,
   },
 });
 
