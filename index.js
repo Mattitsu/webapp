@@ -6,7 +6,7 @@
 /* eslint-disable no-shadow-restricted-names */
 
 // We import the modules.
-require('dotenv').config()
+require("dotenv").config();
 const config = require("./config");
 const mongoose = require("mongoose");
 const GuildSettings = require("./models/settings");
@@ -15,15 +15,17 @@ const { Client, Intents, Permissions } = require("discord.js");
 
 // We instiate the client and connect to database.
 const client = new Client({
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES],
+  intents: [
+    Intents.FLAGS.GUILDS,
+    Intents.FLAGS.GUILD_MEMBERS,
+    Intents.FLAGS.GUILD_MESSAGES,
+  ],
 });
 
 mongoose.connect(process.env.mongodbUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
-
 
 // We listen for client's ready event.
 client.on("ready", async () => {
@@ -34,13 +36,10 @@ client.on("ready", async () => {
   console.log("Fetched members.");
 
   console.log(
-    `Bot is ready. (${client.guilds.cache.size} Guilds - ${client.channels.cache.size} Channels - ${client.users.cache.size} Users)`,
+    `Bot is ready. (${client.guilds.cache.size} Guilds - ${client.channels.cache.size} Channels - ${client.users.cache.size} Users)`
   );
 
-  client.user.setActivity(
-    "https://youtube.com/mattitsu",
-    { type: "WATCHING" },
-  );
+  client.user.setActivity("https://youtube.com/mattitsu", { type: "WATCHING" });
 
   Dashboard(client);
 });
@@ -49,7 +48,11 @@ client.on("ready", async () => {
 client.on("messageCreate", async (message) => {
   // Doing some basic command logic.
   if (message.author.bot) return;
-  if (!message.channel.permissionsFor(message.guild.me).has(Permissions.FLAGS.SEND_MESSAGES)) {
+  if (
+    !message.channel
+      .permissionsFor(message.guild.me)
+      .has(Permissions.FLAGS.SEND_MESSAGES)
+  ) {
     return;
   }
 
@@ -81,7 +84,7 @@ client.on("messageCreate", async (message) => {
   if (command === "ping") {
     const roundtripMessage = await message.channel.send({ content: "Pong!" });
     return roundtripMessage.edit(
-      `*${roundtripMessage.createdTimestamp - message.createdTimestamp}ms*`,
+      `*${roundtripMessage.createdTimestamp - message.createdTimestamp}ms*`
     );
   }
 });
