@@ -2,30 +2,65 @@
 
 <div class="container-sm center" style="margin-top: 25px;">
 
-  <div class="d-grid gap-2 col-6 mx-auto">
+  <div class="d-grid gap-2 col-8 mx-auto">
 
     <h2>Events Dashboard</h2>
 
     
 
-    <div class="form-floating">
+  
 
-  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+    <div class="list-group" id="list-tab" role="tablist">
 
-    <option selected>List Events</option>
+      <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
 
-    <option value="1">One</option>
+      <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
 
-    <option value="2">Two</option>
+      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
 
-    <option value="3">Three</option>
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
 
-  </select>
+   
 
-  <label for="floatingSelect">Works with selects</label>
+  
+
+  
+
+    <div class="tab-content" id="nav-tabContent">
+
+      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
+
+      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
+
+      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+
+      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+
+    </div>
+
+  </div>
 
 </div>
 
+    
+
+  
+
+   
+
+    
+
+    
+
+    
+
+  
+
+  
+
+
+    </div>
+<div class="d-grid gap-2 col-8 mx-auto" style="margin-top: 25px;">
     <a class="btn btn-primary text-white "href="#">Add / Edit Event</a>
 
   </div>
