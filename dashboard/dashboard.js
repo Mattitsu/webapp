@@ -210,6 +210,11 @@ module.exports = async (client) => {
       discordInvite: process.env.discordInvite,
     });
   });
+  
+  // Event Manager Routes.
+  app.get("/events", (req, res) => {
+    
+   });
 
   // Dashboard endpoint.
   app.get("/dashboard", checkAuth, (req, res) => {
