@@ -59,25 +59,25 @@ module.exports = async (client) => {
   // This line is to inform users where the system will begin redirecting the users.
   // And can be removed.
   const msg = `${chalk.red.bold("Info:")} ${chalk.green.italic(
-    "Make sure you have added the Callback URL to the Discord's OAuth Redirects section in the developer portal.",
+    "Make sure you have added the Callback URL to the Discord's OAuth Redirects section in the developer portal."
   )}`;
   boxConsole([
     `${chalk.red.bold("Callback URL:")} ${chalk.white.bold.italic.underline(
-      callbackUrl,
+      callbackUrl
     )}`,
     `${chalk.red.bold(
-      "Discord Developer Portal:",
+      "Discord Developer Portal:"
     )} ${chalk.white.bold.italic.underline(
-      `https://discord.com/developers/applications/${process.env.id}/oauth2`,
+      `https://discord.com/developers/applications/${process.env.id}/oauth2`
     )}`,
     msg,
   ]);
 
   // We set the passport to use a new discord strategy, we pass in client id, secret, callback url and the scopes.
   /** Scopes:
-	 *  - Identify: Avatar's url, username and discriminator.
-	 *  - Guilds: A list of partial guilds.
-	 */
+   *  - Identify: Avatar's url, username and discriminator.
+   *  - Guilds: A list of partial guilds.
+   */
   passport.use(
     new Strategy(
       {
@@ -89,8 +89,8 @@ module.exports = async (client) => {
       (accessToken, refreshToken, profile, done) => {
         // On login we pass in profile with no logic.
         process.nextTick(() => done(null, profile));
-      },
-    ),
+      }
+    )
   );
 
   // We initialize the memorystore middleware with our express app.
@@ -98,10 +98,10 @@ module.exports = async (client) => {
     session({
       store: new MemoryStore({ checkPeriod: 86400000 }),
       secret:
-				"#@%#&^$^$%@$^$&%#$%@#$%$^%&$%^#$%@#$%#E%#%@$FEErfgr3g#%GT%536c53cc6%5%tv%4y4hrgrggrgrgf4n",
+        "#@%#&^$^$%@$^$&%#$%@#$%$^%&$%^#$%@#$%#E%#%@$FEErfgr3g#%GT%536c53cc6%5%tv%4y4hrgrggrgrgf4n",
       resave: false,
       saveUninitialized: false,
-    }),
+    })
   );
 
   // We initialize passport middleware.
@@ -120,7 +120,7 @@ module.exports = async (client) => {
   app.use(
     bodyParser.urlencoded({
       extended: true,
-    }),
+    })
   );
 
   // We host all of the files in the assets using their name in the root address.
@@ -139,7 +139,7 @@ module.exports = async (client) => {
     // We render template using the absolute path of the template and the merged default data with the additional data provided.
     res.render(
       path.resolve(`${templateDir}${path.sep}${template}`),
-      Object.assign(baseData, data),
+      Object.assign(baseData, data)
     );
   };
 
@@ -171,7 +171,7 @@ module.exports = async (client) => {
       // Forward the request to the passport middleware.
       next();
     },
-    passport.authenticate("discord"),
+    passport.authenticate("discord")
   );
 
   // Callback endpoint.
@@ -180,7 +180,7 @@ module.exports = async (client) => {
     passport.authenticate("discord", { failureRedirect: "/" }),
     /* We authenticate the user, if user canceled we redirect him to index. */ (
       req,
-      res,
+      res
     ) => {
       // If user had set a returning url, we redirect him there, otherwise we redirect him to index.
       if (req.session.backURL) {
@@ -190,11 +190,11 @@ module.exports = async (client) => {
       } else {
         res.redirect("/");
       }
-    },
+    }
   );
 
   // Logout endpoint.
-  app.get("/logout", function(req, res) {
+  app.get("/logout", function (req, res) {
     // We destroy the session.
     req.session.destroy(() => {
       // We logout the user.
@@ -210,11 +210,11 @@ module.exports = async (client) => {
       discordInvite: process.env.discordInvite,
     });
   });
-  
+
   // Event Manager Routes.
   app.get("/events", (req, res) => {
-    
-   });
+    renderTemplate(res, req, "events.ejs", {});
+  });
 
   // Dashboard endpoint.
   app.get("/dashboard", checkAuth, (req, res) => {
@@ -299,6 +299,6 @@ module.exports = async (client) => {
   });
 
   app.listen(process.env.port, null, null, () =>
-    console.log(`Dashboard is up and running on port ${process.env.port}.`),
+    console.log(`Dashboard is up and running on port ${process.env.port}.`)
   );
 };
