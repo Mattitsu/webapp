@@ -213,7 +213,7 @@ module.exports = async (client) => {
 
   // Event Manager Routes.
   app.get("/event-mgmt", (req, res) => {
-    renderTemplate(res, req, "event-mgmt.ejs", {});
+    renderTemplate(res, req, "/events/event-add.ejs", {});
   });
 
   // Dashboard endpoint.
