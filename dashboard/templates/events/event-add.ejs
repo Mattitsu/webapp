@@ -1,37 +1,37 @@
 <%- include("../partials/header", { bot, user, path, title: "Select server" }) %>
 
-<div style="display: flex; flex-wrap: wrap; justify-content: center;">
+<%- include("../partials/nav") %>
   
       
       
 
 
-    <div class="card" style="max-width: 18rem; margin: 2rem; min-width: 10em;">
-    <img src="https:/
+    <div class="card center s8 m8">
+    
       <div class="card-body">
-        <h5 class="card-title">Create Event</h5>
+        <h5 class="card-title">Add Event</h5>
       
          
       <form>
         <div class="row">
 
-    <form class="col s12">
+    <form class="col">
 
       <div class="row">
 
         <div class="input-field col s6">
 
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <input id="host_name" type="text" class="validate">
 
-          <label for="first_name">First Name</label>
+          <label for="host_name">Host Name</label>
 
         </div>
 
         <div class="input-field col s6">
 
-          <input id="last_name" type="text" class="validate">
+          <input id="event_name" type="text" class="validate">
 
-          <label for="last_name">Last Name</label>
+          <label for="event_name">Event Name</label>
 
         </div>
 
@@ -82,24 +82,24 @@
     <div id="eventHelp" class="form-text">Your event name here</div>
   </div>
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Monday</label>
+for="exampleInputPassword1" class="form-label">Password</label>
+ 
+
+
+   
+    
     
 
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  
 
-  <label class="form-check-label" for="flexCheckDefault">
+  
 
-    Default checkbox
+   
 
-  </label>
+  
 
 
-  </div>
+ 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
         
