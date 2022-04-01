@@ -1,5 +1,5 @@
 <%- include("partials/header", { bot, user, path, title: "Select server" }) %>
-
+<%- include("partials/nav_bar") %>
 <div style="display: flex; flex-wrap: wrap; justify-content: center;">
   <% user.guilds.forEach(guild => {
       const permsOnGuild = new perms(guild.permissions_new);
