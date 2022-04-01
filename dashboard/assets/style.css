@@ -12,9 +12,11 @@
  * Made By MaterializeCSS.com
  */
 
-nav ul a,
+nav ul a, {
+  color: black;
+}
 nav .brand-logo {
-  color: #444;
+  color: black;
 }
 
 p {
