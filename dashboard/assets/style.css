@@ -12,11 +12,11 @@
  * Made By MaterializeCSS.com
  */
 
-tabs-border-bottom-style,{
-  
+tabs-border-bottom {
+  style: transparent;
 }
 
-nav ul a, {
+nav ul a {
   color: black;
 }
 nav .brand-logo {
