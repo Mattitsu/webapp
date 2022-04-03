@@ -11,18 +11,12 @@
  *
  * Made By MaterializeCSS.com
  */
-
-tabs-border-bottom {
-  style: transparent;
+nav {
+  background-color: white;
 }
-
-nav ul a {
+.level-item {
   color: black;
 }
-nav .brand-logo {
-  color: black;
-}
-
 p {
   line-height: 2rem;
 }
