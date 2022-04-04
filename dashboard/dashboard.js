@@ -211,7 +211,7 @@ module.exports = async (client) => {
     const eventData = fs.readFile('./data/events.json', (err, data) => {
       if (err) throw err;
 
-      console.log(data);
+      console.log(JSON.stringify(eventData));
     });
 
     renderTemplate(res, req, "index.ejs", {
