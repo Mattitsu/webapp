@@ -208,15 +208,15 @@ module.exports = async (client) => {
   // Index endpoint.
   app.get("/", (req, res) => {
     // Get Event Data from file.
-    const eventData = fs.readFile('./data/events.json', (err, data) => {
+    let eventData = fs.readFile('./data/events.json', (err, data) => {
       if (err) throw err;
-
+const eventData = JSON.
       console.log(JSON.stringify(eventData));
     });
 
     renderTemplate(res, req, "index.ejs", {
       discordInvite: process.env.discordInvite,
-      eventData: eventData,
+      Edata: eventData,
     });
   });
 
