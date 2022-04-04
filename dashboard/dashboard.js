@@ -8,7 +8,7 @@ const ejs = require("ejs");
 const path = require("path");
 const chalk = require("chalk");
 const express = require("express");
-//const config = require("../config");
+// const config = require("../config");
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const session = require("express-session");
@@ -143,23 +143,6 @@ module.exports = async (client) => {
       Object.assign(baseData, data)
     );
   };
-  
-  const importData = (){
-    fs.readFile("../data/events.json", "utf8", (err, jsonString) => {
-
-  if (err) {
-
-    console.log("File read failed:", err);
-
-    return;
-
-  }
-
-  console.log("File data:", jsonString);
-
-});
-    
-  };
 
   // We declare a checkAuth function middleware to check if an user is logged in or not, and if not redirect him.
   const checkAuth = (req, res, next) => {
@@ -236,6 +219,9 @@ module.exports = async (client) => {
 
   // Dashboard endpoint.
   app.get("/dashboard", checkAuth, (req, res) => {
+    // Get Event Data from file 
+    const eventData = fs.readFile('./../data/events.json', (err, data)
+                                 
     renderTemplate(res, req, "dashboard.ejs", { perms: Permissions });
   });
 
