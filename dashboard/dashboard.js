@@ -207,8 +207,16 @@ module.exports = async (client) => {
 
   // Index endpoint.
   app.get("/", (req, res) => {
+    // Get Event Data from file.
+    const eventData = fs.readFile('./data/events.json', (err, data) => {
+      if (err) throw err;
+
+      console.log(data);
+    });
+
     renderTemplate(res, req, "index.ejs", {
       discordInvite: process.env.discordInvite,
+      eventData,
     });
   });
 
@@ -219,9 +227,6 @@ module.exports = async (client) => {
 
   // Dashboard endpoint.
   app.get("/dashboard", checkAuth, (req, res) => {
-    // Get Event Data from file 
-    const eventData = fs.readFile('./../data/events.json', (err, data)
-                                 
     renderTemplate(res, req, "dashboard.ejs", { perms: Permissions });
   });
 
