@@ -3,6 +3,7 @@
 
 // We import modules.
 const url = require("url");
+const fs = require("fs");
 const ejs = require("ejs");
 const path = require("path");
 const chalk = require("chalk");
@@ -141,6 +142,23 @@ module.exports = async (client) => {
       path.resolve(`${templateDir}${path.sep}${template}`),
       Object.assign(baseData, data)
     );
+  };
+  
+  const importData = (){
+    fs.readFile("../data/events.json", "utf8", (err, jsonString) => {
+
+  if (err) {
+
+    console.log("File read failed:", err);
+
+    return;
+
+  }
+
+  console.log("File data:", jsonString);
+
+});
+    
   };
 
   // We declare a checkAuth function middleware to check if an user is logged in or not, and if not redirect him.
