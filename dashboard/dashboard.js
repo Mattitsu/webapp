@@ -208,10 +208,10 @@ module.exports = async (client) => {
   // Index endpoint.
   app.get("/", (req, res) => {
     // Get Event Data from file.
-    let eventData = fs.readFile('./data/events.json', (err, data) => {
+    let oldeventData = fs.readFile('./data/events.json', (err, data) => {
       if (err) throw err;
-const eventData = JSON.
-      console.log(JSON.stringify(eventData));
+let eventData = JSON.parse(oldeventData)
+      console.log(eventData);
     });
 
     renderTemplate(res, req, "index.ejs", {
