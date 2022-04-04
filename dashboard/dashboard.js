@@ -216,7 +216,7 @@ module.exports = async (client) => {
 
     renderTemplate(res, req, "index.ejs", {
       discordInvite: process.env.discordInvite,
-      eventData,
+      eventData: eventData,
     });
   });
 
