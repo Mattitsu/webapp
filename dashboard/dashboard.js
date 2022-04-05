@@ -215,13 +215,18 @@ module.exports = async (client) => {
 
     renderTemplate(res, req, "index.ejs", {
       discordInvite: process.env.discordInvite,
-      eventData,
+      
     });
   });
 
   // Event Manager Routes.
   app.get("/event-mgmt", (req, res) => {
     renderTemplate(res, req, "/events/event-add.ejs", {});
+  });
+  
+  // Team Manager Routes.
+  app.get("/team-add", (req, res) => {
+    renderTemplate(res, req, "/teams/add.ejs", {});
   });
 
   // Dashboard endpoint.
