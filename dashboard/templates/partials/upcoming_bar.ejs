@@ -6,33 +6,8 @@
     <p class="subtitle center is-italic green-text"> 
       Powered by Rafiki - The Gaming Hub Bot
     </p>
-<div class="row">
- <%- include("tag-list") %>
-</div>
-    
-    <ul class="tabs tabs-rounded tabs-transparent purple">
-        <li class="tab"><a href="#test1">Mon</a></li>
-        <li class="tab"><a class="active" href="#test2">Tue</a></li>
-        <li class="tab disabled"><a href="#test3">Wed</a></li>
-        <li class="tab"><a href="#test4">Thur</a></li>
-        <li class="tab"><a href="#">Fri</a></li>
-        <li class="tab"> <a href="#">Sat</a></li>
-        <li class="tab"><a href="#">Sun</a></li>
-    </ul>
-   
-  
-  
-  
 
-  
-
-
-  </div>
 <div class="section">
- 
-  
- 
-  
  
 
     <div class="col s8 m6">
@@ -67,7 +42,12 @@
         
 
       </div>
-<nav class="pagination is-small black is-rounded" role="navigation" aria-label="pagination">
+  <div class="column is-half is-offset-one-quarter">
+ <%- include("tag-list") %>
+
+  </div>
+    <br>
+<nav class="pagination is-centered is-small black is-rounded" role="navigation" aria-label="pagination">
   <ul class="pagination-list">
     <li><a class="pagination-link is-current" aria-current="page" aria-label="Goto page 1">1</a></li>
     <li><span class="pagination-ellipsis">&hellip;</span></li>
