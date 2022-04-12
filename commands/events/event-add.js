@@ -52,7 +52,7 @@ module.exports = {
       type: "STRING",
     },
   ],
-  callback: ({ message, args, interaction }) => {
+  callback: ({ args, interaction }) => {
     const [event_name, event_host, user, date, description] = args;
     const embed = new MessageEmbed()
       .setTitle(`${event_name} - Date:${date}`)
@@ -61,16 +61,9 @@ module.exports = {
       .addField("Hosted by", event_host)
       .addField("Event Manager & Contact", interaction.user.tag);
 
-    if (message) {
-      message.reply(
-        "You will be able to add more details & configure your event via the Dashboard",
-        { embed }
-      );
-    }
-
-    return {
+    return interaction.reply({
       content: "You  be able to add/edit more info on the Dashboard",
       embeds: [embed],
-    };
+    });
   },
 };
