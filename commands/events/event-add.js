@@ -62,7 +62,7 @@ module.exports = {
       .addField("Event Manager & Contact", interaction.user.tag);
 
     if (message) {
-      message.reply("", { embed });
+      message.reply("You will be able to add more details & configure your event via the Dashboard", { embed });
     }
 
     return embed;
