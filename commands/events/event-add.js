@@ -10,15 +10,26 @@ module.exports = {
 
   minArgs: 3,
   expectedArgs: "<Event Title> <Host Name> <Organiser Tag>",
+  
+  options: [
+    {
+      name: 'eventName',
+      description: 'Name of your event',
+      required: true,
+      type: 10,
+    },
+    {
+      name: 'num2',
+      description: 'The second number',
+      required: true,
+      type: 10,
+    },
+  ],
 
   callback: ({ message, interaction, args }) => {
-    const title = args.shift();
+    const { title, host, tag } = args;
 
-    const host = args.shift();
-
-    const tag = args.shift();
-
-    console.log(title, host, tag);
+    console.log(title);
 
     const reply = "Pong!";
 

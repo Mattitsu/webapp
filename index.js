@@ -104,7 +104,9 @@ client.on("ready", async () => {
 
     // Provides additional debug logging
     debug: false,
-  })
+  });
+
+  const { slashCommands } = wok
     // Here are some additional methods that you can chain
     // onto the contrustor call. These will eventually be
     // merged into the above object, but for now you can
