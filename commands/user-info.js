@@ -1,3 +1,5 @@
+const { MessageEmbed } = require("discord.js");
+
 module.exports = {
   category: "Testing",
   description: "Replies with user info", // Required for slash commands
@@ -5,22 +7,31 @@ module.exports = {
   slash: "both", // Create both a slash and legacy command
   testOnly: true, // Only register a slash command for the testing guilds
 
-  callback: ({ message, interaction }) => {
+  callback: ({ guild, message, interaction }) => {
     const user = message.mentions.users.first() || message.member.user;
     const member = guild.members.cache.get(user.id);
 
-    console.log(member);
-
-    const embed = new MessageEmbed()
-      .setAuthor(`User info for ${user.username}`, user.displayAvatarURL())
-      .addFields(
+    const exampleEmbed = {
+      color: 0x0099ff,
+      title: "User Information",
+      url: "https://discord.js.org",
+      author: {
+        name: `${user.username}`,
+        icon_url: `user.displayAvatarURL()`,
+        url: "https://discord.js.org",
+      },
+      description: "Some description here",
+      thumbnail: {
+        url: "https://i.imgur.com/AfFp7pu.png",
+      },
+      fields: [
         {
           name: "User tag",
-          value: user.tag,
+          value: user.tag || "None",
         },
         {
           name: "Is bot",
-          value: user.bot,
+          value: user.bot || "None",
         },
         {
           name: "Nickname",
@@ -32,20 +43,23 @@ module.exports = {
         },
         {
           name: "Joined Discord",
-          value: new Date(user.createdTimestamp).toLocaleDateString(),
+          value: new Date(user.createdTimestamp).toLocaleDateString() || "None",
         },
         {
           name: "Roles",
-          value: member.roles.cache.size - 1,
-        }
-      );
+          value: member.roles.cache.size - 1 || "None",
+        },
+      ],
 
-    const reply = "Pong!";
+      timestamp: new Date() || "None",
+    };
+
+    const reply = [exampleEmbed];
 
     // message is provided only for a legacy command
     if (message) {
       message.reply({
-        content: reply,
+        embeds: reply,
       });
       return;
     }
