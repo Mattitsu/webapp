@@ -6,14 +6,45 @@ module.exports = {
   description: "Add an event to the database",
   minArgs: 3,
   expectedArgs: "<event_name> <event_host> <event_tag>",
+  options: [
+    {
+      name: "event_name", // Must be lower case
+
+      description: "Name of the event",
+
+      required: true,
+
+      type: "STRING",
+    },
+
+    {
+      name: "event_host", // Must be lower case
+
+      description: "Event Host",
+
+      required: true,
+
+      type: "STRING",
+    },
+    {
+      name: "user",
+
+      description: "Event Manager Tag",
+
+      required: true,
+
+      type: "USER",
+    },
+  ],
   callback: ({ message, args }) => {
-    const embed = new MessageEmbed().setTitle("Example").setDescription("pong");
+    const [event_name, event_host, user] = args;
+    const embed = new MessageEmbed()
+      .setTitle(event_name)
+      .setDescription("pong")
 
-    const [event_name, event_host, event_tag] = args;
-
-    embed.addField("Name", event_name);
-    embed.addField("Host", event_host);
-    embed.addField("Orgniser", event_tag);
+      .addField("Name", event_name)
+      .addField("Host", event_host)
+      .addField("Event Manager", user);
 
     if (message) {
       message.reply("", { embed });
