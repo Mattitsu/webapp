@@ -9,27 +9,38 @@ module.exports = {
   testOnly: true, // Only register a slash command for the testing guilds
 
   minArgs: 3,
-  expectedArgs: "<Event Title> <Host Name> <Organiser Tag>",
-  
+  expectedArgs: "<eventname> <hostname> <hosttag>",
+
   options: [
     {
-      name: 'eventName',
-      description: 'Name of your event',
+      name: "eventname",
+      description: "Name of your event",
       required: true,
-      type: 10,
+      type: 'STRING',
     },
     {
-      name: 'num2',
-      description: 'The second number',
+      name: "hostname",
+      description: "Hosts Name",
       required: true,
-      type: 10,
+      type: 'STRING',
+    },
+    {
+      name: "hosttag",
+      description: "Hosts Discord @",
+      required: true,
+      type: 'STRING',
     },
   ],
 
   callback: ({ message, interaction, args }) => {
-    const { title, host, tag } = args;
+    const [eventname, hostname, hosttag] = args;
+    const name = parseInt(args[0]);
+    const host = parseInt(args[1]);
+    const tag = parseInt(args[2]);
 
-    console.log(title);
+    console.log(name);
+    console.log(host);
+    console.log(tag);
 
     const reply = "Pong!";
 

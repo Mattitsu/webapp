@@ -106,17 +106,12 @@ client.on("ready", async () => {
     debug: false,
   });
 
-  const { slashCommands } = wok
-    // Here are some additional methods that you can chain
-    // onto the contrustor call. These will eventually be
-    // merged into the above object, but for now you can
-    // use them:
+  // Here are some additional methods that you can chain
+  // onto the contrustor call. These will eventually be
+  // merged into the above object, but for now you can
+  // use them:
 
-    // The default is !
-    .setDefaultPrefix("?")
-
-    // Used for the color of embeds sent by WOKCommands
-    .setColor(0xff0000);
+  // The default is !
 });
 
 // Listening for error & warn events.
