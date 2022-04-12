@@ -13,34 +13,37 @@ module.exports = {
 
   options: [
     {
-      name: "eventname",
-      description: "Name of your event",
-      required: true,
-      type: 3,
-    },
-    {
-      name: "hostname",
-      description: "Hosts Name",
-      required: true,
-      type: 3,
-    },
-    {
-      name: "hosttag",
-      description: "Hosts Discord @",
-      required: true,
-      type: 6,
+      type: "SUBCOMMAND",
+      name: "add",
+      description: "Adds an event to the database",
+      options: [
+        {
+          name: "eventname",
+          description: "Name of your event",
+          required: true,
+          type: 3,
+        },
+        {
+          name: "hostname",
+          description: "Hosts Name",
+          required: true,
+          type: 3,
+        },
+        {
+          name: "hosttag",
+          description: "Hosts Discord @",
+          required: true,
+          type: 6,
+        },
+      ],
     },
   ],
 
-  callback: ({ message, interaction, args }) => {
-    const [eventname, hostname, hosttag] = args;
-    const name = (args[0]);
-    const host = (args[1]);
-    const tag = (args[2]);
+  callback: ({ guild, message, interaction, args }) => {
+    const subCommand = interaction.options.getSubcommand();
+    const eventname = interaction.options.getString("eventname");
 
-    console.log(name);
-    console.log(host);
-    console.log(tag);
+    console.log(eventname);
 
     const reply = "Pong!";
 
