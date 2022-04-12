@@ -16,19 +16,19 @@ module.exports = {
       name: "eventname",
       description: "Name of your event",
       required: true,
-      type: "STRING",
+      type: 3,
     },
     {
       name: "hostname",
       description: "Hosts Name",
       required: true,
-      type: "STRING",
+      type: 3,
     },
     {
       name: "hosttag",
       description: "Hosts Discord @",
       required: true,
-      type: "STRING",
+      type: 6,
     },
   ],
 
