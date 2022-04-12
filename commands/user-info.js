@@ -16,7 +16,7 @@ module.exports = {
     let rolemap = member.roles.cache
       .sort((a, b) => b.position - a.position)
       .map((r) => r)
-      .join("/n");
+      .join("\r\n");
     if (rolemap.length > 1024) rolemap = "To many roles to display";
     if (!rolemap) rolemap = "No roles";
 
@@ -29,25 +29,9 @@ module.exports = {
       .addFields(
         { name: "Current Server Roles", value: rolemap },
 
-        { name: "Inline field title", value: "Some value here", inline: true },
-        {
-          name: "Role Count",
-          value: `${member.roles.cache.size - 1}`,
-          inline: true,
-        }
+        { name: "Web Activated", value: "True/False" }
       )
-      .addFields(
-        { name: "Regular field title", value: "Some value here" },
-        { name: "\u200B", value: "\u200B" },
-        { name: "Inline field title", value: "Some value here", inline: true },
-        {
-          name: "Role Count",
-          value: `${member.roles.cache.size - 1}`,
-          inline: true,
-        }
-      )
-      .addField("Inline field title", "Some value here", true)
-      .setImage("https://i.imgur.com/AfFp7pu.png")
+
       .setTimestamp()
       .setFooter({
         text: "Some footer text here",
