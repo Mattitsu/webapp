@@ -11,49 +11,31 @@ module.exports = {
     const user = message.mentions.users.first() || message.member.user;
     const member = guild.members.cache.get(user.id);
 
-    const exampleEmbed = {
-      color: 0x0099ff,
-      title: "User Information",
-      url: "https://discord.js.org",
-      author: {
-        name: `${user.username}`,
-        icon_url: `user.displayAvatarURL()`,
-        url: "https://discord.js.org",
-      },
-      description: "Some description here",
-      thumbnail: {
-        url: "https://i.imgur.com/AfFp7pu.png",
-      },
-      fields: [
-        {
-          name: "User tag",
-          value: user.tag || "None",
-        },
-        {
-          name: "Is bot",
-          value: user.bot || "None",
-        },
-        {
-          name: "Nickname",
-          value: member.nickname || "None",
-        },
-        {
-          name: "Joined Server",
-          value: new Date(member.joinedTimestamp).toLocaleDateString(),
-        },
-        {
-          name: "Joined Discord",
-          value: new Date(user.createdTimestamp).toLocaleDateString() || "None",
-        },
-        {
-          name: "Roles",
-          value: member.roles.cache.size - 1 || "None",
-        },
-      ],
+    const exampleEmbed = new MessageEmbed()
+      .setColor("#0099ff")
+      .setTitle(`${user.username}'s User-Info`)
 
-      timestamp: new Date() || "None",
-    };
-
+      .setDescription(`${user.tag} || ${user.id}`)
+      .setThumbnail(`${user.displayAvatarURL()}`)
+    .addFields(
+        { name: "Current Server Roles", value: "\u200b" },
+       
+        { name: "Inline field title", value: "Some value here", inline: true },
+        { name: "Role Count", value: `${member.roles.cache.size - 1}`, inline: true }
+      )
+      .addFields(
+        { name: "Regular field title", value: "Some value here" },
+        { name: "\u200B", value: "\u200B" },
+        { name: "Inline field title", value: "Some value here", inline: true },
+        { name: "Role Count", value: `${member.roles.cache.size - 1}`, inline: true }
+      )
+      .addField("Inline field title", "Some value here", true)
+      .setImage("https://i.imgur.com/AfFp7pu.png")
+      .setTimestamp()
+      .setFooter({
+        text: "Some footer text here",
+        iconURL: "https://i.imgur.com/AfFp7pu.png",
+      });
     const reply = [exampleEmbed];
 
     // message is provided only for a legacy command
