@@ -11,23 +11,40 @@ module.exports = {
     const user = message.mentions.users.first() || message.member.user;
     const member = guild.members.cache.get(user.id);
 
+    if (!member) return message.reply("No Member Found");
+
+    let rolemap = member.roles.cache
+      .sort((a, b) => b.position - a.position)
+      .map((r) => r)
+      .join("/n");
+    if (rolemap.length > 1024) rolemap = "To many roles to display";
+    if (!rolemap) rolemap = "No roles";
+
     const exampleEmbed = new MessageEmbed()
       .setColor("#0099ff")
       .setTitle(`${user.username}'s User-Info`)
 
       .setDescription(`${user.tag} || ${user.id}`)
       .setThumbnail(`${user.displayAvatarURL()}`)
-    .addFields(
-        { name: "Current Server Roles", value: "\u200b" },
-       
+      .addFields(
+        { name: "Current Server Roles", value: rolemap },
+
         { name: "Inline field title", value: "Some value here", inline: true },
-        { name: "Role Count", value: `${member.roles.cache.size - 1}`, inline: true }
+        {
+          name: "Role Count",
+          value: `${member.roles.cache.size - 1}`,
+          inline: true,
+        }
       )
       .addFields(
         { name: "Regular field title", value: "Some value here" },
         { name: "\u200B", value: "\u200B" },
         { name: "Inline field title", value: "Some value here", inline: true },
-        { name: "Role Count", value: `${member.roles.cache.size - 1}`, inline: true }
+        {
+          name: "Role Count",
+          value: `${member.roles.cache.size - 1}`,
+          inline: true,
+        }
       )
       .addField("Inline field title", "Some value here", true)
       .setImage("https://i.imgur.com/AfFp7pu.png")
