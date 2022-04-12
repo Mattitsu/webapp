@@ -49,7 +49,7 @@ module.exports = {
     const [event_name, event_host, user, date] = args;
     const embed = new MessageEmbed()
       .setTitle(event_name)
-      .setDescription(date)
+      .setDescription(`${date}`)
 
       .addField("Name", event_name)
       .addField("Host", event_host)
