@@ -59,7 +59,12 @@ module.exports = {
       .setDescription(`__Event Details__\nDate:${date}\n${description}`)
       .addField("Game", "PUBGM | CODM | NewState")
       .addField("Hosted by", event_host)
-      .addField("Event Manager & Contact", interaction.user.tag);
+      .addField("Event Manager & Contact", `@${interaction.user.tag}`)
+
+      .addField(
+        "More Info",
+        "To further manager your event please the dashboard"
+      );
 
     return interaction.reply({
       content: "You  be able to add/edit more info on the Dashboard",
