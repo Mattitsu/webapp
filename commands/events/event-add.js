@@ -4,8 +4,8 @@ module.exports = {
   slash: "both",
   testOnly: true,
   description: "Add an event to the database",
-  minArgs: 3,
-  expectedArgs: "<event_name> <event_host> <user>",
+  minArgs: 4,
+  expectedArgs: "<event_name> <event_host> <user> <date>",
   options: [
     {
       name: "event_name", // Must be lower case
@@ -35,12 +35,21 @@ module.exports = {
 
       type: "USER",
     },
+    {
+      name: "date",
+
+      description: "Event Date",
+
+      required: true,
+
+      type: "STRING",
+    },
   ],
   callback: ({ message, args }) => {
-    const [event_name, event_host, user] = args;
+    const [event_name, event_host, user, date] = args;
     const embed = new MessageEmbed()
       .setTitle(event_name)
-      .setDescription("pong")
+      .setDescription(date)
 
       .addField("Name", event_name)
       .addField("Host", event_host)
