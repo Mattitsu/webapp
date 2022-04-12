@@ -16,27 +16,27 @@ module.exports = {
       name: "eventname",
       description: "Name of your event",
       required: true,
-      type: 'STRING',
+      type: "STRING",
     },
     {
       name: "hostname",
       description: "Hosts Name",
       required: true,
-      type: 'STRING',
+      type: "STRING",
     },
     {
       name: "hosttag",
       description: "Hosts Discord @",
       required: true,
-      type: 'STRING',
+      type: "STRING",
     },
   ],
 
   callback: ({ message, interaction, args }) => {
     const [eventname, hostname, hosttag] = args;
-    const name = parseInt(args[0]);
-    const host = parseInt(args[1]);
-    const tag = parseInt(args[2]);
+    const name = (args[0]);
+    const host = (args[1]);
+    const tag = (args[2]);
 
     console.log(name);
     console.log(host);
