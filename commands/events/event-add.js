@@ -5,7 +5,7 @@ module.exports = {
   testOnly: true,
   description: "Add an event to the database",
   minArgs: 3,
-  expectedArgs: "<event_name> <event_host> <event_tag>",
+  expectedArgs: "<event_name> <event_host> <user>",
   options: [
     {
       name: "event_name", // Must be lower case
