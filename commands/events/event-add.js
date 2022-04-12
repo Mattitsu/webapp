@@ -56,10 +56,10 @@ module.exports = {
     const [event_name, event_host, user, date, description] = args;
     const embed = new MessageEmbed()
       .setTitle(`${event_name} - Date:${date}`)
-      .setDescription(`__Event Deatails__\n${description}`)
+      .setDescription(`__Event Details__\nDate:${date}\n${description}`)
       .addField("Game", "PUBGM | CODM | NewState")
-      .addField("Host", event_host)
-      .addField("Event Manager", interaction.user.username);
+      .addField("Hosted by", event_host)
+      .addField("Event Manager & Contact", interaction.user.tag);
 
     if (message) {
       message.reply("", { embed });
