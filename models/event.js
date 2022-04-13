@@ -2,16 +2,20 @@
 
 const { Schema, model } = require("mongoose");
 
+const reqString = {
+  type: String,
+  required: true,
+};
+
 // We declare new schema.
 const eventSettingSchema = new Schema({
-  eventName: {
-    type: String,
-  },
-  eventHost: {
-    type: String,
-  },
-  hostTag: {
-    type: String,
+  eventName: reqString,
+  eventHost: reqString,
+  manager: reqString,
+  description: reqString,
+  date: {
+    type: Date,
+    required: true,
   },
 });
 
