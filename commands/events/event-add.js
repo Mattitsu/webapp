@@ -57,9 +57,10 @@ module.exports = {
   callback: async ({ args, interaction }) => {
     const [event_name, event_host, user, date, description] = args;
     const embed = new MessageEmbed()
-      .setTitle(`event_host${event_name}`)
-      .setDescription(`__Event Details__\nDate:${date}\n${description}`)
+      .setTitle(`${event_host} - ${event_name}`)
       .addField("Game", "PUBGM | CODM | NewState")
+      .setDescription(`__Event Details__\nDate:${date}\n${description}`)
+
       .addField("Hosted by", event_host)
       .addField("Event Manager & Contact", `@${interaction.user.tag}`)
 
