@@ -12,12 +12,16 @@ module.exports = {
 
     const events = eventSchema.find();
     console.log(events);
-    
+
+    for (const e in events) {
+      console.log(e.description);
+    }
+
     const embed = new MessageEmbed()
-      .setTitle(``)
+      .setTitle(`Test Title`)
 
       .addField("Game", "PUBGM | CODM | NewState")
-      .setDescription(``);
+      .setDescription(e.description);
 
     //  .addField("Hosted by", event_host)
     // .addField("Event Manager & Contact", `@${interaction.user.tag}`)
