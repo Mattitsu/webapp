@@ -9,27 +9,24 @@ module.exports = {
 
   guildOnly: true,
 
-
   callback: async ({ args, interaction }) => {
     //const [event_name, event_host, user, date, description] = args;
-    
-    
+
     const events = await eventSchema.find({});
     console.log(events);
-  
-    let description = `__EVENT LIST__`
-    
+
+    let description = `__EVENT LIST__\n\n`;
+
     for (const event of events) {
       console.log(event.description);
-      description += `**__Event Details__** ${event.description}\n`
-      
+      description += `${event.description}\n`;
     }
 
     const embed = new MessageEmbed()
       .setTitle(`Test Title`)
 
       .addField("Game", "PUBGM | CODM | NewState")
-      .setDescription(`${event[0].description}`);
+      .setDescription(description);
 
     //  .addField("Hosted by", event_host)
     // .addField("Event Manager & Contact", `@${interaction.user.tag}`)
