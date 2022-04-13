@@ -6,25 +6,25 @@ module.exports = {
   slash: "both",
   testOnly: true,
   description: "List events in the database",
-  minArgs: 0,
-  expectedArgs: "",
-  init: (client, instance) => {
-    const event = eventSchema.findAll();
-  },
+
   callback: async ({ args, interaction }) => {
-    const [event_name, event_host, user, date, description] = args;
+    //const [event_name, event_host, user, date, description] = args;
+
+    const event = eventSchema.find({});
+    console.log(event);
     const embed = new MessageEmbed()
-      .setTitle(`${event_host} - ${event.event_name}`)
+      .setTitle(`${event.event_host} - ${event.event_name}`)
+    
       .addField("Game", "PUBGM | CODM | NewState")
-      .setDescription(`__Event Details__\nDate:${date}\n${event.description}`)
+      .setDescription(`__Event Details__\nDate:\n${event[0]}`);
 
-      .addField("Hosted by", event_host)
-      .addField("Event Manager & Contact", `@${interaction.user.tag}`)
+    //  .addField("Hosted by", event_host)
+    // .addField("Event Manager & Contact", `@${interaction.user.tag}`)
 
-      .addField(
-        "More Info",
-        "To further manager your event please the dashboard"
-      );
+    // .addField(
+    //  "More Info",
+    //   "To further manager your event please the dashboard"
+    //)
 
     return interaction.reply({
       content: "You  be able to add/edit more info on the Dashboard",
