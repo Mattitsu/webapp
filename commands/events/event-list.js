@@ -18,7 +18,7 @@ module.exports = {
     let description = `__EVENT LIST__\n\n`;
 
     for (const event of events) {
-      description += `${event.eventName}\n${event.description}\n\n`;
+      description += `**__${event.eventName}__**\n${event.description}\n\n`;
     }
 
     const embed = new MessageEmbed()
