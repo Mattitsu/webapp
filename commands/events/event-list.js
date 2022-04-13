@@ -10,13 +10,14 @@ module.exports = {
   callback: async ({ args, interaction }) => {
     //const [event_name, event_host, user, date, description] = args;
 
-    const event = eventSchema.find({});
-    console.log(event.first());
+    const events = eventSchema.find();
+    console.log(events);
+    const event = foreac
     const embed = new MessageEmbed()
-      .setTitle(`${event.event_host} - ${event.event_name}`)
-    
+      .setTitle(``)
+
       .addField("Game", "PUBGM | CODM | NewState")
-      .setDescription(`__Event Details__\nDate:\n${event[0]}`);
+      .setDescription(``);
 
     //  .addField("Hosted by", event_host)
     // .addField("Event Manager & Contact", `@${interaction.user.tag}`)
