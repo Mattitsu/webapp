@@ -10,10 +10,10 @@ module.exports = {
   callback: async ({ args, interaction }) => {
     //const [event_name, event_host, user, date, description] = args;
 
-    const events = eventSchema.find();
-    console.log(events);
+    const eventslist = eventSchema.find();
+    console.log(eventslist);
 
-    for (const e in events) {
+    for (const e in eventslist) {
       console.log(e.description);
     }
 
