@@ -12,7 +12,7 @@ module.exports = {
 
     const events = eventSchema.find();
     console.log(events);
-    const event = foreac
+    
     const embed = new MessageEmbed()
       .setTitle(``)
 
