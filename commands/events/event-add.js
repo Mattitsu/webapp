@@ -68,17 +68,24 @@ module.exports = {
         "To further manager your event please the dashboard"
       );
 
+    await eventSchema.findOneAndUpdate(
+      {
+        eventName: event_name,
+      },
+      {
+        eventHost: event_host,
+        manager: interaction.user.tag,
+        description: description,
+        date: date,
+      },
+      {
+        upsert: true,
+      }
+    );
+
     return interaction.reply({
       content: "You  be able to add/edit more info on the Dashboard",
       embeds: [embed],
-    });
-
-    await eventSchema.findOneAndUpdate({
-      eventName: event_name,
-      eventHost: event_host,
-      manager: interaction.user.tag,
-      description: description,
-      date: date,
     });
   },
 };

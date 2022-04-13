@@ -8,16 +8,16 @@ const reqString = {
 };
 
 // We declare new schema.
-const eventSettingSchema = new Schema({
+const eventSchema = new Schema({
   eventName: reqString,
   eventHost: reqString,
   manager: reqString,
   description: reqString,
   date: {
-    type: Date,
+    type: String,
     required: true,
   },
 });
 
 // We export it as a mongoose model.
-module.exports = model("event_settings", eventSettingSchema);
+module.exports = model("event", eventSchema);
