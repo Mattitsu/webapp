@@ -16,18 +16,14 @@ module.exports = {
     console.log(events);
 
     let description = `__EVENT LIST__\n\n`;
-    let newfield = `E`;
 
     for (const event of events) {
-      console.log(event.description);
-      description += `${event.description}\n`;
-      newfield += `${event.eventName}\n`;
+      description += `${event.eventName}\n`;
     }
 
     const embed = new MessageEmbed()
       .setTitle(`Test Title`)
 
-      .addField(newfield)
       .setDescription(description);
 
     //  .addField("Hosted by", event_host)
@@ -41,7 +37,6 @@ module.exports = {
     return interaction.reply({
       content: "You  be able to add/edit more info on the Dashboard",
       embeds: [embed],
-    
     });
   },
 };
