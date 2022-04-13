@@ -79,6 +79,6 @@ module.exports = {
       manager: interaction.user.tag,
       description: description,
       date: date,
-    }).save();
+    });
   },
 };
