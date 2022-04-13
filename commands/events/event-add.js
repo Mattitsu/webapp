@@ -1,5 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 
+const eventSchema = require("../../models/event");
+
 module.exports = {
   slash: "both",
   testOnly: true,
@@ -52,7 +54,7 @@ module.exports = {
       type: "STRING",
     },
   ],
-  callback: ({ args, interaction }) => {
+  callback: async ({ args, interaction }) => {
     const [event_name, event_host, user, date, description] = args;
     const embed = new MessageEmbed()
       .setTitle(`${event_name} - Date:${date}`)
@@ -70,5 +72,13 @@ module.exports = {
       content: "You  be able to add/edit more info on the Dashboard",
       embeds: [embed],
     });
+
+    await eventSchema.findOneAndUpdate({
+      eventName: event_name,
+      eventHost: event_host,
+      manager: interaction.user.tag,
+      description: description,
+      date: date,
+    }).save();
   },
 };
