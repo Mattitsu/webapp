@@ -11,7 +11,7 @@ module.exports = {
     //const [event_name, event_host, user, date, description] = args;
 
     const event = eventSchema.find({});
-    console.log(event);
+    console.log(event.first());
     const embed = new MessageEmbed()
       .setTitle(`${event.event_host} - ${event.event_name}`)
     
