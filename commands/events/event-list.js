@@ -15,14 +15,14 @@ module.exports = {
     const events = await eventSchema.find({});
     console.log(events);
 
-    let description = `__EVENT LIST__\n\n`;
+    let description = `To add/edit your event please goto the (https://linktr.ee/mattitsu)[dashboard]\n\n`;
 
     for (const event of events) {
       description += `**__${event.eventName}__**\n${event.description}\n\n`;
     }
 
     const embed = new MessageEmbed()
-      .setTitle(`Test Title`)
+      .setTitle(`__Event List__`)
 
       .setDescription(description);
 
