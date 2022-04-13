@@ -8,81 +8,28 @@ module.exports = {
   description: "List events in the database",
 
   guildOnly: true,
-  options: [
-    {
-      type: "SUB_COMMAND",
-      name: "add",
-      description: "Adds an event to the database",
-      options: [
-        {
-          name: "event name",
-          type: "STRING",
-          description: "Please enter an Event Name",
-          required: true,
-        },
-        {
-          name: "event date",
-          type: "STRING",
-          description: "Please enter an Event date",
-          required: true,
-        },
-        {
-          name: "event host",
-          type: "STRING",
-          description: "Please enter an Event Host Name",
-          required: true,
-        },
-        {
-          name: "event manager",
-          type: "USER",
-          description: "Please tag the event manager",
-          required: true,
-        },
-      ],
-      type: "SUB_COMMAND",
-      name: "remove",
-      description: "Remove an event from the database",
-      options: [
-        {
-          name: "event name",
-          type: "STRING",
-          description: "Please enter an Event Name",
-          required: true,
-        },
-      ],
-      type: "SUB_COMMAND",
-      name: "list",
-      description: "List event in the database",
-      options: [
-        {
-          name: "event name",
-          type: "STRING",
-          description: "Please enter an Event Name",
-          required: true,
-        },
-      ],
-    },
-  ],
 
-  callback: async ({ member, args, interaction }) => {
+
+  callback: async ({ args, interaction }) => {
     //const [event_name, event_host, user, date, description] = args;
     
-    const subCommand = interaction.options.getSubcommand()
     
-    const user = interaction.options.getUser('user')
-
-    const eventslist = eventSchema.find();
-    console.log(eventslist);
-
-    for (const e in eventslist) {
-      console.log(e.description);
+    const events = await eventSchema.find({});
+    console.log(events);
+  
+    let description = `__EVENT LIST__`
+    
+    for (const event of events) {
+      console.log(event.description);
+      description += `**__Event Details__** ${event.description}\n`
+      
     }
 
     const embed = new MessageEmbed()
       .setTitle(`Test Title`)
 
       .addField("Game", "PUBGM | CODM | NewState")
-      .setDescription(e.description);
+      .setDescription(`${event[0].description}`);
 
     //  .addField("Hosted by", event_host)
     // .addField("Event Manager & Contact", `@${interaction.user.tag}`)
