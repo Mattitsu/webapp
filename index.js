@@ -31,6 +31,8 @@ client.on("ready", async () => {
     await guild.members.fetch();
   }
   console.log("Fetched members.");
+
+  Dashboard(client);
 });
 
 client.on("ready", async () => {
