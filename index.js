@@ -28,32 +28,11 @@ const client = new DiscordJS.Client({
 // We listen for client's ready event.
 
 client.on("ready", async () => {
-  console.log("Fetching members...");
-
-  for (const [id, guild] of client.guilds.cache) {
-    await guild.members.fetch();
-  }
-
-  console.log("Fetched members.");
-
-  console.log(
-    `Bot is ready. (${client.guilds.cache.size} Guilds - ${client.channels.cache.size} Channels - ${client.users.cache.size} Users)`
-  );
-
-  client.user.setActivity(
-    "https://github.com/MrAugu/simple-discordjs-dashboard",
-
-    { type: "WATCHING" }
-  );
-
-  Dashboard(client);
-});
-
-client.on("ready", async () => {
   // The client object is required as the first argument.
   // The second argument is the options object.
   // All properties of this object are optional.
   console.log(__dirname);
+
   new WOKCommands(client, {
     // The name of the local folder for your command files
     commandsDir: path.join(__dirname, "commands"),
@@ -133,6 +112,8 @@ client.on("ready", async () => {
 // Listening for error & warn events.
 client.on("error", console.error);
 client.on("warn", console.warn);
+
+Dashboard(client);
 
 // We login into the bot.
 client.login(process.env.token);
