@@ -25,12 +25,26 @@ const client = new DiscordJS.Client({
   ],
 });
 
+// We listen for client's ready event.
+
 client.on("ready", async () => {
   console.log("Fetching members...");
+
   for (const [id, guild] of client.guilds.cache) {
     await guild.members.fetch();
   }
+
   console.log("Fetched members.");
+
+  console.log(
+    `Bot is ready. (${client.guilds.cache.size} Guilds - ${client.channels.cache.size} Channels - ${client.users.cache.size} Users)`
+  );
+
+  client.user.setActivity(
+    "https://github.com/MrAugu/simple-discordjs-dashboard",
+
+    { type: "WATCHING" }
+  );
 
   Dashboard(client);
 });
