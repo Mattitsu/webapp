@@ -2,6 +2,11 @@
 
 const { Schema, model } = require("mongoose");
 
+const reqStringUniq = {
+  type: String,
+  required: true,
+  unique: true,
+};
 const reqString = {
   type: String,
   required: true,
@@ -9,10 +14,9 @@ const reqString = {
 
 // We declare new schema.
 const teamSchema = new Schema({
-  Name: reqString,
+  Name: reqStringUniq,
   Manager: reqString,
-  Tag: reqString,
-  
+  Tag: reqStringUniq,
 });
 
 // We export it as a mongoose model.

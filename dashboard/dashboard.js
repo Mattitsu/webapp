@@ -243,10 +243,6 @@ module.exports = async (client) => {
 
     const team = new TeamList({ Name, Manager, Tag });
     team.save();
-
-    renderTemplate(res, req, "teams/add.ejs", {
-      alert: "Your team has been saved to the databae",
-    });
   });
   // Dashboard endpoint.
   app.get("/dashboard", checkAuth, (req, res) => {
