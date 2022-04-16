@@ -236,7 +236,7 @@ module.exports = async (client) => {
   });
   app.post("/team-add", async (req, res, next) => {
     console.log("It Worked");
-    console.log(req.body);
+    console.log(req.Name);
   });
   // Dashboard endpoint.
   app.get("/dashboard", checkAuth, (req, res) => {
