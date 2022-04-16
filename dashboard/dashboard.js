@@ -233,6 +233,8 @@ module.exports = async (client) => {
   { "Name": "test_two", "Manager": "two manager", "Tag": "TT2" }
           
           ];
+    const teamSchema = "./models/team";
+    const teams = teamSchema.findAll()
     renderTemplate(res, req, "/teams/add.ejs", {
       // Push Teams to template.
       teams: team_list,
