@@ -14,6 +14,7 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const { Permissions } = require("discord.js");
 const GuildSettings = require("../models/settings");
+const TeamList = require("../models/team");
 const Strategy = require("passport-discord").Strategy;
 const { boxConsole } = require("../functions/boxConsole");
 
@@ -227,8 +228,8 @@ module.exports = async (client) => {
   app.get("/team-add", async (req, res) => {
     //Get Teams from DB
 
-    const teams_list = "./models/team";
-    const teams = await teams.find({});
+    
+    const teams = await TeamList.find({});
     renderTemplate(res, req, "/teams/add.ejs", {
       // Push Teams to template.
       teams: teams,

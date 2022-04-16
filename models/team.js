@@ -16,4 +16,4 @@ const teamSchema = new Schema({
 });
 
 // We export it as a mongoose model.
-module.exports = model("team", teamSchema);
+module.exports = model("teams", teamSchema);
