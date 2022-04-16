@@ -43,8 +43,11 @@
 <div class="field is-grouped">
 
   <% teams.forEach(function(team){ %>
+    <tr>
 <th> <%= team.Name %> </th>
-    
+  <td> <%= team.Tag %> </td>
+    <td> <%= team.Manager %> </td>
+    </tr>
 
   <% }); %>
 
