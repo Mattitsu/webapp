@@ -12,7 +12,9 @@
 
   <% teams.forEach(function(team){ %>
 
-    <li> {team.name} </li>
+    <li> <%= team.Name %> </li>
+    <li> <%= team.Tag %> </li>
+    <li> <%= team.Manager %> </li>
 
   <% }); %>
 
@@ -38,7 +40,15 @@
       <tbody>
 
     <tr>
+<th>
 
+  <% teams.forEach(function(team){ %>
+<th> <%= team.Name %> </th>
+    
+
+  <% }); %>
+
+</th>
       <th>Example Team</th>
       <th class="is-centered">
       
