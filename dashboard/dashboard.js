@@ -225,7 +225,7 @@ module.exports = async (client) => {
   });
 
   // Team Manager Routes.
-  app.get("/team-add", async (req, res) => {
+  app.get("/teams", async (req, res) => {
     //Get Teams from DB
 
     const teams = await TeamList.find({});
@@ -235,25 +235,32 @@ module.exports = async (client) => {
       alert: null,
     });
   });
-  app.post("/team-add", async (req, res, next) => {
+  
+  app.get("/teams/:Name", async (req, res => {
+    renderTemplate(res, req, "/teams/team.ejs", {
+      teams: teams,
+      
+  });
+  
+  app.post("/teams", async (req, res, next) => {
     console.log("It Worked");
     const Name = req.body.Name;
     const Manager = req.body.Manager;
     const Tag = req.body.Tag;
     console.log(Tag);
 
-    
-
     const team = new TeamList({ Name, Manager, Tag });
     team.save();
-    
+
     const teams = await TeamList.find({});
 
-    renderTemplate(res, req, "/teams/add.ejs", {
+    renderTemplate(res, req, "/teams", {
       teams: teams,
       alert: "Team saved to DB",
     });
   });
+  
+  
   // Dashboard endpoint.
   app.get("/dashboard", checkAuth, (req, res) => {
     renderTemplate(res, req, "dashboard.ejs", { perms: Permissions });
