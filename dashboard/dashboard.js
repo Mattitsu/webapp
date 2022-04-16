@@ -224,20 +224,17 @@ module.exports = async (client) => {
   });
 
   // Team Manager Routes.
-  app.get("/team-add", (req, res) => {
+  app.get("/team-add", async (req, res) => {
     //Get Teams from DB
     const team_list = [
-
-
-  { "Name": "test", "Manager": "test team manager", "Tag": "TT1" },
-  { "Name": "test_two", "Manager": "two manager", "Tag": "TT2" }
-          
-          ];
-    const teamSchema = "./models/team";
-    const teams = await teamSchema.findAll()
+      { Name: "test", Manager: "test team manager", Tag: "TT1" },
+      { Name: "test_two", Manager: "two manager", Tag: "TT2" },
+    ];
+    const team = "./models/team";
+    const teams = await team.find({});
     renderTemplate(res, req, "/teams/add.ejs", {
       // Push Teams to template.
-      teams: team
+      teams: team,
     });
   });
 
