@@ -237,10 +237,12 @@ module.exports = async (client) => {
   });
 
   app.get("/teams/:Name", async (req, res) => {
-    
     const team = await TeamList.findOne({ Name });
-    
-    
+
+    console.log(team);
+
+    Name = team;
+
     renderTemplate(res, req, "/teams/team.ejs", {
       team: team,
     });

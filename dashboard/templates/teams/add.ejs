@@ -46,7 +46,12 @@
 <th> <%= team.Name %> </th>
   <td> <%= team.Tag %> </td>
     <td> <%= team.Manager %> </td>
-      <td> <button class="button is-primary">
+      <td><button class="js-modal-trigger is-primary" data-target="modal-js-example">
+
+  <span class="icon is-small">
+    
+
+</button> <button class="button is-primary">
 
     <span class="icon is-small">
 
@@ -144,5 +149,23 @@
 
 
     </div>
- 
+ <div id="modal-js-example" class="modal">
+
+  <div class="modal-background"></div>
+
+  <div class="modal-content">
+
+    <div class="box">
+
+      <p>Modal JS example</p>
+
+      <!-- Your content -->
+
+    </div>
+
+  </div>
+
+  <button class="modal-close is-large" aria-label="close"></button>
+
+</div>
   <%- include("../partials/footer") %>
