@@ -46,22 +46,23 @@
 <th> <%= team.Name %> </th>
   <td> <%= team.Tag %> </td>
     <td> <%= team.Manager %> </td>
-      <td><button class="js-modal-trigger is-primary" data-target="modal-js-example">
+      <td><button class="js-modal-trigger button is-primary" data-target="modal-js-example">
 
   <span class="icon is-small">
+    <i class="fas fa-eye"></i>
+  </span>
+<span> More Info </span>
+</button>
+
     
 
-</button> <button class="button is-primary">
+      
 
-    <span class="icon is-small">
+   
 
-      <i class="fas fa-eye"></i>
+    
 
-    </span>
-
-    <span>View</span>
-
-  </button></td>
+  </td>
     </tr>
 
   <% }); %>
@@ -150,22 +151,52 @@
 
     </div>
  <div id="modal-js-example" class="modal">
+    <div class="modal">
 
   <div class="modal-background"></div>
 
-  <div class="modal-content">
+  <div class="modal-card">
 
-    <div class="box">
+    <header class="modal-card-head">
 
-      <p>Modal JS example</p>
+      <p class="modal-card-title">Modal title</p>
 
-      <!-- Your content -->
+      <button class="delete" aria-label="close"></button>
 
-    </div>
+    </header>
+
+    <section class="modal-card-body">
+
+      <!-- Content ... -->
+
+    </section>
+
+    <footer class="modal-card-foot">
+
+      <button class="button is-success">Save changes</button>
+
+      <button class="button">Cancel</button>
+
+    </footer>
 
   </div>
 
-  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+  
+
+  
+
+    
+
+     
+
+     
+
+    
+
+  
+
+  
 
 </div>
   <%- include("../partials/footer") %>
