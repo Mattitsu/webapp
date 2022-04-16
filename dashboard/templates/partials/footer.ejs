@@ -43,8 +43,8 @@
   }
 
   // Add a click event on buttons to open a specific modal
-
-  (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+<% teams.forEach(function(team) { %>
+  (document.querySelectorAll('.js-modal-trigger<%= team.name %>') || []).forEach(($trigger) => {
 
     const modal = $trigger.dataset.target;
 
@@ -87,7 +87,7 @@
     }
 
   });
-
+<% }); %>
 });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
