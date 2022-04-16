@@ -235,13 +235,17 @@ module.exports = async (client) => {
       alert: null,
     });
   });
-  
-  app.get("/teams/:Name", async (req, res => {
+
+  app.get("/teams/:Name", async (req, res) => {
+    
+    const team = await TeamList.findOne({ Name });
+    
+    
     renderTemplate(res, req, "/teams/team.ejs", {
-      teams: teams,
-      
+      team: team,
+    });
   });
-  
+
   app.post("/teams", async (req, res, next) => {
     console.log("It Worked");
     const Name = req.body.Name;
@@ -259,8 +263,7 @@ module.exports = async (client) => {
       alert: "Team saved to DB",
     });
   });
-  
-  
+
   // Dashboard endpoint.
   app.get("/dashboard", checkAuth, (req, res) => {
     renderTemplate(res, req, "dashboard.ejs", { perms: Permissions });
