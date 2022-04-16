@@ -241,8 +241,12 @@ module.exports = async (client) => {
     const Tag = req.body.Tag;
     console.log(Tag);
 
-    const team = await TeamList.findOneandUpdate({ Name }, { Name, Manager, Tag });
-    team.save()
+    const team = new TeamList({ Name, Manager, Tag });
+    team.save();
+
+    renderTemplate(res, req, "teams/add.ejs", {
+      alert: "Your team has been saved to the databae",
+    });
   });
   // Dashboard endpoint.
   app.get("/dashboard", checkAuth, (req, res) => {
