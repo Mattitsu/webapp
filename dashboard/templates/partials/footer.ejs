@@ -44,7 +44,7 @@
 
   // Add a click event on buttons to open a specific modal
 <% teams.forEach(function(team) { %>
-  (document.querySelectorAll('.js-modal-trigger<%= team.name %>') || []).forEach(($trigger) => {
+  (document.querySelectorAll('.js-modal-trigger<%= team.Name %>') || []).forEach(($trigger) => {
 
     const modal = $trigger.dataset.target;
 
