@@ -236,7 +236,12 @@ module.exports = async (client) => {
   });
   app.post("/team-add", async (req, res, next) => {
     console.log("It Worked");
-    console.log(req.body);
+    const Name = req.body.Name;
+    const Manager = req.body.Manager;
+    const Tag = req.body.Tag;
+    console.log(Tag);
+    
+    
   });
   // Dashboard endpoint.
   app.get("/dashboard", checkAuth, (req, res) => {
