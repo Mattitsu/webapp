@@ -234,10 +234,10 @@ module.exports = async (client) => {
           
           ];
     const teamSchema = "./models/team";
-    const teams = teamSchema.findAll()
+    const teams = await teamSchema.findAll()
     renderTemplate(res, req, "/teams/add.ejs", {
       // Push Teams to template.
-      teams: team_list,
+      teams: team
     });
   });
 
