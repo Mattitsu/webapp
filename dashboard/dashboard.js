@@ -228,14 +228,15 @@ module.exports = async (client) => {
   app.get("/team-add", async (req, res) => {
     //Get Teams from DB
 
-    
     const teams = await TeamList.find({});
     renderTemplate(res, req, "/teams/add.ejs", {
       // Push Teams to template.
       teams: teams,
     });
   });
-
+  app.post("/team-add", async (req, res) => {
+    console.log(req);
+  });
   // Dashboard endpoint.
   app.get("/dashboard", checkAuth, (req, res) => {
     renderTemplate(res, req, "dashboard.ejs", { perms: Permissions });
