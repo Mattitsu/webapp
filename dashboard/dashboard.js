@@ -232,6 +232,7 @@ module.exports = async (client) => {
     renderTemplate(res, req, "/teams/add.ejs", {
       // Push Teams to template.
       teams: teams,
+      alert: null,
     });
   });
   app.post("/team-add", async (req, res, next) => {
@@ -247,7 +248,7 @@ module.exports = async (client) => {
     team.save();
 
     renderTemplate(res, req, "/teams/add.ejs", {
-      teams,
+      teams: teams,
       alert: "Team saved to DB",
     });
   });
