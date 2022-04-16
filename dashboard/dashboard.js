@@ -240,8 +240,9 @@ module.exports = async (client) => {
     const Manager = req.body.Manager;
     const Tag = req.body.Tag;
     console.log(Tag);
-    
-    
+
+    const team = await TeamList.findOneandUpdate({ Name }, { Name, Manager, Tag });
+    team.save()
   });
   // Dashboard endpoint.
   app.get("/dashboard", checkAuth, (req, res) => {
