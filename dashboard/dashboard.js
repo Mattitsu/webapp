@@ -215,7 +215,6 @@ module.exports = async (client) => {
 
     renderTemplate(res, req, "index.ejs", {
       discordInvite: process.env.discordInvite,
-      
     });
   });
 
@@ -223,13 +222,14 @@ module.exports = async (client) => {
   app.get("/event-mgmt", (req, res) => {
     renderTemplate(res, req, "/events/event-add.ejs", {});
   });
-  
+
   // Team Manager Routes.
   app.get("/team-add", (req, res) => {
-    //Get Teams from DB 
-    const teams = 
+    //Get Teams from DB
+    const team_list = [{ "Team Name": "test" }, { "Team Name": "test_two" }];
     renderTemplate(res, req, "/teams/add.ejs", {
       // Push Teams to template.
+      teams: team_list,
     });
   });
 

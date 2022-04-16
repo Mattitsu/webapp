@@ -8,6 +8,15 @@
     <p class="center">
       List of teams currently registered with Rafiki Bot 
     </p>
+    <ul>
+
+  <% teams.forEach(function(team){ %>
+
+    <li> {team.name} </li>
+
+  <% }); %>
+
+</ul>
   </div>
   <div class="table-container">
 
