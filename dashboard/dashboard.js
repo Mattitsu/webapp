@@ -241,8 +241,15 @@ module.exports = async (client) => {
     const Tag = req.body.Tag;
     console.log(Tag);
 
+    const teams = await TeamList.find({});
+
     const team = new TeamList({ Name, Manager, Tag });
     team.save();
+
+    renderTemplate(res, req, "/teams/add.ejs", {
+      teams,
+      alert: "Team saved to DB",
+    });
   });
   // Dashboard endpoint.
   app.get("/dashboard", checkAuth, (req, res) => {
