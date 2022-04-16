@@ -242,10 +242,12 @@ module.exports = async (client) => {
     const Tag = req.body.Tag;
     console.log(Tag);
 
-    const teams = await TeamList.find({});
+    
 
     const team = new TeamList({ Name, Manager, Tag });
     team.save();
+    
+    const teams = await TeamList.find({});
 
     renderTemplate(res, req, "/teams/add.ejs", {
       teams: teams,
