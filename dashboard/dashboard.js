@@ -226,12 +226,12 @@ module.exports = async (client) => {
   // Team Manager Routes.
   app.get("/team-add", (req, res) => {
     //Get Teams from DB
-    const team_list = [teams
+    const team_list = [
 
-{
-  { "Name": "test", "Manager": "test team manager", "Tag": "TT1" }, 
+
+  { "Name": "test", "Manager": "test team manager", "Tag": "TT1" },
   { "Name": "test_two", "Manager": "two manager", "Tag": "TT2" }
-          }
+          
           ];
     renderTemplate(res, req, "/teams/add.ejs", {
       // Push Teams to template.

@@ -9,15 +9,6 @@
       List of teams currently registered with Rafiki Bot 
     </p>
     <ul>
-
-  <% teams.forEach(function(team){ %>
-
-    <li> <%= team.Name %> </li>
-    <li> <%= team.Tag %> </li>
-    <li> <%= team.Manager %> </li>
-
-  <% }); %>
-
 </ul>
   </div>
   <div class="table-container">
@@ -47,29 +38,7 @@
 <th> <%= team.Name %> </th>
   <td> <%= team.Tag %> </td>
     <td> <%= team.Manager %> </td>
-    </tr>
-
-  <% }); %>
-
-</div>
-      <th>Example Team</th>
-      <th class="is-centered">
-      
-      <div class="field is-grouped">
-
-  
-
-    
-
-     
-
-    
-
-  
-
-  <p class="control">
-
-    <button class="button is-primary">
+      <td> <button class="button is-primary">
 
     <span class="icon is-small">
 
@@ -79,83 +48,13 @@
 
     <span>View</span>
 
-  </button>
+  </button></td>
+    </tr>
 
-      
-
- 
-
-      
-
-    
-      
-    
-
-  </p>
-
-  
-
-    
-
-      
-
-    
-
-  
+  <% }); %>
 
 </div>
-      
-      
-      
-      
-      
-      
-      
-      </th>
-</tr>
-        
-        
-      
 
-      </td>
-
-     
-
-     
-
-     
-
-     
-
-      
-
-     
-
-     
-
-      
-
-     
-
-    </tr>
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-     
-
-    </tr>
 
   </tbody>
 
