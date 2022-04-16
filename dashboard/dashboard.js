@@ -226,7 +226,11 @@ module.exports = async (client) => {
   
   // Team Manager Routes.
   app.get("/team-add", (req, res) => {
-    renderTemplate(res, req, "/teams/add.ejs", {});
+    //Get Teams from DB 
+    const teams = 
+    renderTemplate(res, req, "/teams/add.ejs", {
+      // Push Teams to template.
+    });
   });
 
   // Dashboard endpoint.
