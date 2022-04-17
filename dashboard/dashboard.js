@@ -213,9 +213,11 @@ module.exports = async (client) => {
       const eventData = JSON.parse(data);
       console.log(eventData);
     });
+    const teams = await TeamList.find({});
 
     renderTemplate(res, req, "index.ejs", {
       discordInvite: process.env.discordInvite,
+      teams,
     });
   });
 
