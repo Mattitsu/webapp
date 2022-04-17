@@ -46,7 +46,7 @@
 <th> <%= team.Name %> </th>
   <td> <%= team.Tag %> </td>
     <td> <%= team.Manager %> </td>
-      <td><button class="js-modal-trigger<%=team.Name %> button is-primary" data-target="modal-js-example">
+      <td><button class="js-modal-trigger button is-primary" data-target="modal-js-example">
 
   <span class="icon is-small">
     <i class="fas fa-eye"></i>
@@ -150,8 +150,8 @@
 
 
     </div>
-  <% teams.forEach (function(team) { %>
- <div id="modal-js-example<%= team.Name %>" class="modal">
+  
+ <div id="modal-js-example" class="modal">
     <div class="modal">
 
   <div class="modal-background"></div>
@@ -183,7 +183,7 @@
   </div>
 
 </div>
-<% }); %>
+
   
 
   
