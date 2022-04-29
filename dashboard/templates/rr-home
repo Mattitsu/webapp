@@ -1,0 +1,29 @@
+<%- include("partials/header", { bot, user, path, title: "Home" }) %>
+
+  
+<%- include("partials/upcoming_bar") %>
+
+  
+<section class="hero is-primary">
+  <div class="hero-body">
+    <p class="title center is-underlined">
+      Event Archive
+    </p>
+  </div>
+
+</section>
+
+<section class="hero black">
+    <div class="hero-body"><p class="title center is-underlined green-text">
+      OTHER THINGS ON THIS SITE </p>
+    </div>
+  <div class="buttons is-centered">
+  <button class="button is-success">STREAMER CENTRAL</button>
+  <button class="button is-info">GAME NEWS & INFORMATION</button>
+  <button class="button is-danger">DISCORD BOT CONFIGURATION</button>
+  <button class="button is-danger">Team & Event Oraginsation</button>
+</div>
+  <br>
+</section> 
+
+  <%- include("partials/footer") %>

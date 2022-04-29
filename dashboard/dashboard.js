@@ -267,7 +267,9 @@ module.exports = async (client) => {
       alert: "Team saved to DB",
     });
   });
-
+  app.get("/soo/", (req, res) => {
+    renderTemplate(res, req, "rr-home.ejs");
+  });
   // Dashboard endpoint.
   app.get("/dashboard", checkAuth, (req, res) => {
     renderTemplate(res, req, "dashboard.ejs", { perms: Permissions });
