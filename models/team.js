@@ -17,6 +17,7 @@ const teamSchema = new Schema({
   Name: reqStringUniq,
   Manager: reqString,
   Tag: reqStringUniq,
+  
 });
 
 // We export it as a mongoose model.
