@@ -11,12 +11,13 @@ const reqString = {
 const eventSchema = new Schema({
   eventName: reqString,
   eventHost: reqString,
-  manager: reqString,
-  description: reqString,
-  date: {
+  eventManager: reqString,
+  eventDescription: reqString,
+  eventDate: {
     type: String,
     required: true,
   },
+
 });
 
 // We export it as a mongoose model.
