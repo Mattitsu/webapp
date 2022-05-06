@@ -1,4 +1,21 @@
 <%- include("partials/header", { bot, user, path, title: "Sons Of Odin" }) %>
+  
+  <div id="tabs-with-content">
+  <div class="tabs is-centered">
+    <ul>
+      <li><a>Pictures</a></li>
+      <li><a>Music</a></li>
+      <li><a>Videos</a></li>
+      <li><a>Documents</a></li>
+    </ul>
+  </div>
+  <div>
+    <section class="tab-content">Pictures content</section>
+    <section class="tab-content">Music content</section>
+    <section class="tab-content">Videos content</section>
+    <section class="tab-content">Documents content</section>
+  </div>
+</div>
 
    <section class="hero is-medium is-warning mb-5"> 
 
@@ -159,5 +176,6 @@
   
 
    </section>
-     
+  
+  
   <%- include ('partials/footer') %>
