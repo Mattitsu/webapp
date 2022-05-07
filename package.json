@@ -18,6 +18,8 @@
   "author": "Mattitsu",
   "dependencies": {
     "body-parser": "^1.20.0",
+    "bulma-carousel": "^4.0.24",
+    "bulma-extensions": "^6.2.7",
     "bulma-pricingtable": "^0.2.0",
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
@@ -28,8 +30,7 @@
     "mongoose": "^6.3.1",
     "passport": "^0.5.2",
     "passport-discord": "^0.1.4",
-    "wokcommands": "^1.5.3",
-    "bulma-extensions": "^6.2.7"
+    "wokcommands": "^1.5.3"
   },
   "devDependencies": {
     "chalk": "^2.4.2",
