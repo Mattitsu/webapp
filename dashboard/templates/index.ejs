@@ -93,72 +93,16 @@
   <button class="button is-red is-fullwidth" disabled>Recruitment Closed</button>
 
 </div>
-            <div class="modal is-active">
-              <div class="modal-background"></div>
-         <div class="modal-content has-background-transparent py-5 mx-5">   
-
-			<div id="carousel-demo" class="hero-carousel">
-
-				<div class="item-1">
-
-					<img class="" src="https://cdn.glitch.global/0dc001d4-d461-4842-8ae3-eb2c13a2407a/Kingy_logo.PNG?v=1651934236617"></img>
-
-				</div>
-
-				<div class="item-2">
-
-					<img id="berserkr-2" src="https://cdn.glitch.global/0dc001d4-d461-4842-8ae3-eb2c13a2407a/Untitled_Artwork-3.png?v=1651924557609"></img
-
-				</div>
-
-				<div class="item-3">
-
-					<img id="berserkr-2" src="https://cdn.glitch.global/0dc001d4-d461-4842-8ae3-eb2c13a2407a/Untitled_Artwork-3.png?v=1651924557609"></img
-
-				</div>
-
-			</div>
-            </div>
-              </div>	
-
+            
 			
 
 			
 
 
               </div>
-            </div>
+    
 
-		<!-- End Hero Carousel -->
-            
-            <div class="modal">
 
-  <div class="modal-background"></div>
-<div class="modal-content has-background-white py-5 px-5">
-  
-			
-				<!-- Start Carousel -->
-				<div id="carousel-demo" class="carousel">
-					<div class="item-1">
-						<!-- Slide Content -->
-            <img class="image" id="berserkr" src="https://cdn.glitch.global/0dc001d4-d461-4842-8ae3-eb2c13a2407a/Untitled_Artwork-3.png?v=1651924557609"style="height:50px;width:auto;"></img>
-					</div>
-					<div class="item-2">
-						<!-- Slide Content -->
-            <img id="berserkr-2" src="https://cdn.glitch.global/0dc001d4-d461-4842-8ae3-eb2c13a2407a/Untitled_Artwork-3.png?v=1651924557609"></img>
-					</div>
-					<div class="item-3">
-						<!-- Slide Content -->
-            <img id="berserkr-3" src="https://cdn.glitch.global/0dc001d4-d461-4842-8ae3-eb2c13a2407a/Untitled_Artwork-3.png?v=1651924557609"></img>
-					</div>
-				</div>
-				<!-- End Carousel -->
-			
-		
-
-</div>
-    </div>
-            
             <hr></hr>
             <img id="berserkr" src="https://cdn.glitch.global/0dc001d4-d461-4842-8ae3-eb2c13a2407a/Untitled_Artwork-3.png?v=1651924557609"></img>
           <p><ul>
@@ -289,6 +233,28 @@
 
   <script src="index.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+<script>
+// Initialize all div with carousel class
+var carousels = bulmaCarousel.attach('.carousel', options);
+
+// Loop on each carousel initialized
+for(var i = 0; i < carousels.length; i++) {
+	// Add listener to  event
+	carousels[i].on('before:show', state => {
+		console.log(state);
+	});
+}
+
+// Access to bulmaCarousel instance of an element
+var element = document.querySelector('#my-element');
+if (element && element.bulmaCarousel) {
+	// bulmaCarousel instance is available as element.bulmaCarousel
+	element.bulmaCarousel.on('before-show', function(state) {
+		console.log(state);
+	});
+}
+
+</script>
 		<script>
 		bulmaCarousel.attach('#carousel-demo', {
 			slidesToScroll: 1,
